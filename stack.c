@@ -43,7 +43,6 @@ void main()
 int * space(int b)
 {
 	int *p;
-	printf("aa");
 	p=(int *)calloc(b,sizeof(int));
 	return p;
 }
@@ -82,7 +81,7 @@ void display(int *x)
 	for(j=0; j<=i; j++)
 	{
 		printf("%d",x[j]);
-		printf(" , ");
+		printf("   ");
 	}
 }
 

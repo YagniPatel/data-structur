@@ -2,7 +2,7 @@
 #include<conio.h>
 #include<stdlib.h>
 
-int i=-1,j=0;
+int i=-1,j=0,l=0,t;
 
 int * space(int);
 void push(int *,int);
@@ -12,12 +12,16 @@ void display(int *);
 void main()
 {
 	int a,b,*x;
+	
 	printf("What size of queues you want : ");
 	scanf("%d",&b);
+	
 	x = space(b);
+	
 	start: printf("\nMenu :--");
     printf("\n1. push\n2. pop\n3. display\n4. exit\n");
 	scanf("%d",&a);
+	
 	switch(a)
 	{
 		case 1:
@@ -43,7 +47,6 @@ void main()
 int * space(int b)
 {
 	int *p;
-	printf("aa");
 	p=(int *)calloc(b,sizeof(int));
 	return p;
 }
@@ -65,24 +68,29 @@ void push(int *x,int b)
 
 void pop(int *x,int b)
 {
-	
 	if(i==-1)
 		printf("queue underflow.");
 	else
 	{
-		printf("Deleted element :-- %d",x[j]);	
-		j++;
-	}		
+		printf("Deleted element :-- %d",x[j]);
+		
+
+		for(l=0; l<i; l++)
+		{
+			x[l]=x[l+1];
+		}
+	}
+	i--;
 }
 
 void display(int *x)
 {
 	int k;
 	printf("Elements of queue :-- ");
-	for(k=j; k<=i; k++)
+	
+	for(k=0; k<=i; k++)
 	{
 		printf("%d",x[k]);
 		printf("   ");
 	}
 }
-
