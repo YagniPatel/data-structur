@@ -2,7 +2,7 @@
 #include<conio.h>
 #include<stdlib.h>
 
-int i=-1,j=0,l=0,m=-1,p=-1;
+int i=-1,j=0,l=0,m=-1;
 
 int * space(int);
 void push(int *,int);
@@ -58,7 +58,7 @@ void push(int *x,int b)
 	p = next(i,b);
 	// TODO check for overflow 
 	if(p==m)
-		printf("overflow");
+		printf("queue overflow");
 	else
 	{
 		printf("\nEnter a num : ");
@@ -77,17 +77,17 @@ void pop(int *x,int b)
 	a = next(m,b);
 	// TODO check for underflow 
 	if(m==-1)
-		printf("underflow");
+		printf("queue underflow");
 	else
 	{
 		printf("Deleted element :-- %d",x[m]);
-		m=a;
-		if(p+1==m)
+		if(i==m)
 		{
 			i=-1;
-			p=-1;
 			m=-1;
 		} 
+		else
+			m=a;
 	}
 }
 
